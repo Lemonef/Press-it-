@@ -30,6 +30,7 @@ class ScreenHandler:
                 "Click the start button below to begin.",
                 align="center", font=("Arial", 18, "normal"))
         
+          
         self.start_button.clear()
         self.start_button.penup()
         self.start_button.goto(0, -50)
@@ -37,6 +38,7 @@ class ScreenHandler:
         self.start_button.color("green")
         self.start_button.shapesize(stretch_wid=2, stretch_len=5)
         self.start_button.showturtle()
+        self.write_text("START", 0, -50) 
         
         self.screen.onscreenclick(lambda x, y: click_start()
                                   if (-50 <= x <= 50 and -70 <= y <= -30)
@@ -65,9 +67,14 @@ class ScreenHandler:
             f"GAME OVER\n\nYour Score: {end_score}\nHigh Score: {self.high_score}",
             align="center", font=("Arial", 24, "bold"))
         
+        
         self.create_restart_button()
         self.write_text("RESTART", 0 , -50)
 
+        self.screen.onscreenclick(
+            lambda x, y: self.start_game()
+            if (-50 <= x <= 50 and -70 <= y <= -50) 
+            else None)
 
     def create_start_button(self):
         self.start_button = turtle.Turtle()
@@ -84,14 +91,14 @@ class ScreenHandler:
         self.restart_button.shapesize(stretch_wid=2, stretch_len=5)
         self.restart_button.showturtle()
         
-    def write_text(self, text, x, y):
+    def write_text(self, text, x, y, font_size=18):
         text_turtle = turtle.Turtle()
         text_turtle.hideturtle()
         text_turtle.penup()
         text_turtle.color("white")
         text_turtle.goto(x, y)
         text_turtle.write(text, align="center",
-                          font=("Arial", 18,
+                          font=("Arial", font_size,
                                 "normal"))
         
     def start_game(self):

@@ -93,9 +93,7 @@ class Game:
                         self.score -= 1
                         self.update_score_display()
                     self.balls.remove(ball)               
-            if self.score <= -10:
-                self.game_over()
-                
+        
             if self.score <= -10:
                 self.game_over()
                 break
