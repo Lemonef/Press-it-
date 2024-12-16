@@ -20,7 +20,8 @@ class Game:
         self.paddle_color = {'a': 'purple', 's':'yellow', 'd': 'blue'}
         
         # Paddle
-        self.paddles = {key: Paddle(self.key_positions[key], key, self.paddle_color[key])
+        self.paddles = {key: Paddle(self.key_positions[key],
+                                    key, self.paddle_color[key])
                         for key in self.keys}
         
         # Score
@@ -75,7 +76,8 @@ class Game:
         
     def check_key_press(self, key):
         for ball in self.balls:  
-            if ball.active and ball.key == key and ball.is_in_target_range():
+            if (ball.active and ball.key == key 
+                and ball.is_in_target_range()):
                 ball.bouncing = True
                 ball.shape.color("White")
                 self.score += 1
@@ -87,7 +89,8 @@ class Game:
     def spawn_ball(self):
         spawn_key = random.choice(self.keys)
         x_pos = self.key_positions[spawn_key]
-        speed = self.base_speed + (self.score * 0.5) if self.score > 0 else self.base_speed
+        speed = (self.base_speed + (self.score * 0.5) 
+                 if self.score > 0 else self.base_speed)
         new_ball = Ball(x_pos, spawn_key, speed)
         self.balls.append(new_ball)
     
@@ -97,7 +100,8 @@ class Game:
             # Calculate spawn interval
             if self.score > 0:
                 # Decrease interval with score
-                spawn_interval = max(0.5, self.base_spawn_interval - (self.score * 0.1))
+                spawn_interval = max(0.5, self.base_spawn_interval
+                                     - (self.score * 0.1))
             else:
                 spawn_interval = max(0.5, self.base_spawn_interval)
                 

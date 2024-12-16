@@ -25,7 +25,8 @@ class Button:
         # Write the message
         self.button.goto(x, y - self.height / 4)
         self.button.color("white")
-        self.button.write(self.message, align="center", font=("Arial", 12, "bold"))
+        self.button.write(self.message, align="center",
+                          font=("Arial", 12, "bold"))
         
     def is_clicked(self, click_x, click_y):
         left = self.button.xcor() - self.width / 2
