@@ -1,4 +1,4 @@
-# Rhythm-game
+# Press it!
 
 ## Project Description
 **Press It** is a fast-paced arcade-style game where players must press keys corresponding to falling balls of specific colors before they hit the paddles. The game tests reflexes and accuracy, challenging players to achieve high scores while avoiding penalties for missed or incorrect inputs. Player can press the exit button when they are satisfied with their score.
