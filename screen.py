@@ -54,7 +54,7 @@ class ScreenHandler:
         self.info.goto(0, -150)
         self.info.write(
             "Click the START button below to begin the game!\n"
-            "You can exit any time! Just press the EXIT button\n"
+            "Press the EXIT button to save the score\n"
             "Try to get the highest score possible! good luck!",
             align="center", font=("Arial", 18, "bold"))
             
