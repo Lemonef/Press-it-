@@ -79,9 +79,11 @@ class ScreenHandler:
         # Display game over and scores
         self.info.goto(0, 80)
         self.info.write(
-            f"GAME OVER\n\nYour Score: {end_score}"
-            "\nHigh Score: {self.high_score}",
-            align="center", font=("Arial", 24, "bold"))
+                f"GAME OVER\n\n"
+                f"Your Score: {end_score}\n"
+                f"High Score: {self.high_score}",
+                align="center",
+                font=("Arial", 24, "bold"))
         
         # Create restart button
         self.restart_button = Button(200, 50, "red", "RESTART",
