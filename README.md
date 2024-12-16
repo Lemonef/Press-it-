@@ -24,37 +24,37 @@
 
 # Purpose of the classes
 - **ScreenHandler**
-Purpose: To manage game's user interface, welcome screen, game area, end screen.
-Interactions: 
-- Initialize the game by invoking the Game class.
-- Display interactive buttons from Button class.
-- Update the screen based on the events and user inputs.
+    Purpose: To manage game's user interface, welcome screen, game area, end screen.
+    Interactions: 
+    - Initialize the game by invoking the Game class.
+    - Display interactive buttons from Button class.
+    - Update the screen based on the events and user inputs.
 - **Game**
-Purpose: The game core logic, ball spawning, paddle interactions, score management.
-Interactions: 
-- Spawn the ball object from Ball class.
-- Manage the paddles to the corresponding keys from Paddle class.
-- Check the state of the game with ScreenHandler class.
+    Purpose: The game core logic, ball spawning, paddle interactions, score management.
+    Interactions: 
+    - Spawn the ball object from Ball class.
+    - Manage the paddles to the corresponding keys from Paddle class.
+    - Check the state of the game with ScreenHandler class.
 - **Button**
-Purpose: Represents the buttons within the game, for user navigation.
-Interactions: 
-- Drawn on the screen by ScreenHandler class.
-- Detect user actions: starting exiting, and restarting.
+    Purpose: Represents the buttons within the game, for user navigation.
+    Interactions: 
+    - Drawn on the screen by ScreenHandler class.
+    - Detect user actions: starting exiting, and restarting.
 - **Paddle**
-Purpose: Represents the paddle at the bottom of the screen with fixed specific color.
-Interactions: 
-- Positioned by Game class on the x's coordinates.
-- Interact with the Ball class to detect the successful hit, granting a score.
+    Purpose: Represents the paddle at the bottom of the screen with fixed specific color.
+    Interactions: 
+    - Positioned by Game class on the x's coordinates.
+    - Interact with the Ball class to detect the successful hit, granting a score.
 - **Ball**
-Purpose: Represents the falling balls that player must react and interact by pressing the correct keys.
-Interactions: 
-- Spawned by the Game class.
-- Move downward according to the player score by Game class
-- Detects the proximity location to the paddle to determine if the hit was successful.
-
+    Purpose: Represents the falling balls that player must react and interact by pressing the correct keys.
+    Interactions: 
+    - Spawned by the Game class.
+    - Move downward according to the player score by Game class
+    - Detects the proximity location to the paddle to determine if the hit was successful.
 # Modifications
 - **Ball class**:
-Modified to represent the falling object for the specific ('a', 's', 'd').
+Modified to represent the falling object for the specific 
+('a', 's', 'd').
 - **Paddle class**:
 Modified to look simpler
 - **Button class**:
