@@ -1,40 +1,39 @@
 import turtle
 
 class Button:
-    def __init__(self, width, height, color):
+    def __init__(self, width, height, color, message, action):
         self.width = width
         self.height = height
-        self.location = [0,0]
         self.color = color
+        self.message = message
+        self.action = action
         self.button = turtle.Turtle()
         self.button.penup()
-        self.button.setheading(0)
         self.button.hideturtle()
-    
-    def set_location(self, location):
-        self.location = location
-        self.button.goto(self.location[0], self.location[1])
 
-    def draw_button(self, message):
+    def draw_button(self, x, y):
+        # Draw the button
+        self.button.goto(x - self.width / 2, y + self.height / 2)
         self.button.color(self.color)
-        self.button.penup()
-        
-        # Draw the rectangle
-        self.button.goto(self.location[0] - self.width / 2, self.location[1] - self.height / 2)
         self.button.begin_fill()
         for _ in range(2):
             self.button.forward(self.width)
-            self.button.left(90)
+            self.button.right(90)
             self.button.forward(self.height)
-            self.button.left(90)
+            self.button.right(90)
         self.button.end_fill()
-
-        # Write text at the center of the button
-        self.button.penup()
-        self.button.goto(self.location[0], self.location[1] - 10)  # Adjust -10 for vertical centering
+        # Write the message
+        self.button.goto(x, y - self.height / 4)
         self.button.color("white")
-        self.button.write(message, align="center", font=("Arial", 15, "bold"))
-
+        self.button.write(self.message, align="center", font=("Arial", 12, "bold"))
+        
+    def is_clicked(self, click_x, click_y):
+        left = self.button.xcor() - self.width / 2
+        right = self.button.xcor() + self.width / 2
+        top = self.button.ycor() + self.height / 2
+        bottom = self.button.ycor() - self.height / 2
+        return left <= click_x <= right and bottom <= click_y <= top     
+              
     def clear(self):
         self.button.clear()
         

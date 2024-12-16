@@ -18,6 +18,7 @@ class ScreenHandler:
         
         self.start_button = None
         self.restart_button = None
+        self.exit_button = None
         
     def start_screen(self, click_start):
         self.clear_screen()
@@ -34,8 +35,14 @@ class ScreenHandler:
             align="center", font=("Arial", 18, "normal"))
         
         # Create start button
-        self.create_button("START", 0, -80, "green", click_start)
+        self.start_button = Button(200, 50, "green", "START", click_start)
+        self.start_button.draw_button(0, -50)
         self.screen.update()
+        self.screen.onscreenclick(self.check_start_click)
+        
+    def check_start_click(self, x, y):
+        if self.start_button and self.start_button.is_clicked(x, y):
+            self.start_button.action()
         
     def end_screen(self, end_score):
         self.clear_screen()
@@ -52,18 +59,14 @@ class ScreenHandler:
             align="center", font=("Arial", 24, "bold"))
         
         # Create restart button
-        self.create_button("RESTART", 0, -80, "red", self.start_game)
+        self.restart_button = Button(200, 50, "red", "RESTART", self.start_game)
+        self.restart_button.draw_button(0, -50)
         self.screen.update()
+        self.screen.onscreenclick(self.check_restart_click)
         
-    def  create_button(self, message, x, y, color, click_callback):
-        self.button = Button(200, 50, color)
-        self.button.draw_button(message)
-        self.button.set_location([x, y])
-        
-        # Add click event
-        self.screen.onscreenclick(lambda x, y: click_callback()
-                                  if (x - 50 <= x <= x + 50 and y - 20 <= y <= y + 20)
-                                  else None)
+    def check_restart_click(self, x, y):
+        if self.restart_button and self.restart_button.is_clicked(x, y):
+            self.restart_button.action()
         
     def clear_screen(self):
         self.screen.clearscreen()
@@ -75,7 +78,7 @@ class ScreenHandler:
     
     def start_game(self):
         self.clear_screen()
-        self.game = Game(self.screen, self.end_game_callback)
+        self.game = Game(self.screen, self.end_game_callback, self)
         self.game.run()
         
     def end_game_callback(self, end_score):

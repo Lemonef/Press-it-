@@ -14,3 +14,6 @@ class Paddle:
         
     def hide(self):
         self.shape.hideturtle()
+        
+    def __str__(self):
+        return "paddle"

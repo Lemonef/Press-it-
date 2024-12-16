@@ -34,3 +34,6 @@ class Ball:
     def is_in_target_range(self):
         y = self.shape.ycor()
         return -270 <= y <= -230
+    
+    def __str__(self):
+        return "ball"

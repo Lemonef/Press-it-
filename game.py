@@ -3,11 +3,15 @@ import time
 import random
 from paddle import Paddle
 from ball import Ball
+from button import Button
 
 class Game:
-    def __init__(self, screen, end_score_callback):
+    def __init__(self, screen, end_score_callback, screen_handler):
         self.screen = screen
         self.end_score_callback = end_score_callback
+        self.screen_handler = screen_handler
+        
+        self.running = True
         
         self.screen.bgcolor("black")
         
@@ -34,11 +38,26 @@ class Game:
         self.base_speed = 5
         self.last_spawn_time = time.time()
         
+        # Exit button
+        self.exit_button = Button(100, 50, "red", "EXIT", self.exit_game)
+        self.exit_button.draw_button(350, 250)
+        self.screen.onscreenclick(self.check_exit_click)
+
         # Key Bindings
         self.screen.listen()
         self.screen.onkey(self.press_a, 'a')
         self.screen.onkey(self.press_s, 's')
         self.screen.onkey(self.press_d, 'd')
+        
+    def check_exit_click(self, x ,y):
+        if self.exit_button.is_clicked(x, y):
+            self.exit_button.action()
+        
+    def exit_game(self):
+        self.running = False # Terminate the game loop
+        self.end_score_callback(self.score)
+        self.screen_handler.end_screen(self.score)
+
         
     def update_score_display(self):
         self.score_display.clear()
@@ -72,7 +91,8 @@ class Game:
         self.balls.append(new_ball)
     
     def run(self):
-        while True:
+        self.running = True
+        while self.running:
             # Calculate spawn interval
             if self.score > 0:
                 # Decrease interval with score
@@ -95,6 +115,7 @@ class Game:
                     self.balls.remove(ball)               
         
             if self.score <= -10:
+                self.running = False
                 self.game_over()
                 break
             
@@ -102,11 +123,14 @@ class Game:
             time.sleep(0.05)
     
     def game_over(self):
+        self.running = False
+        self.screen_handler.clear_screen()
         # Hide balls and paddles
         for ball in self.balls:
             ball.shape.clear()
         for paddle in self.paddles.values():
             paddle.hide()
+ 
         
         end_score = self.score
         self.end_score_callback(end_score)
