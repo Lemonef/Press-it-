@@ -25,18 +25,40 @@ class ScreenHandler:
         self.screen.bgcolor("black")
         
         # Display instructions
+        self.info.goto(0, 200)
+        self.info.write(
+            "Welcome to Press It!",
+            align="center", font=("Arial", 28, "bold"))
+        
         self.info.goto(0, 80)
         self.info.write(
-            "Welcome to Press It!\n\n"
-            "Press 'a', 's', 'd' when the falling balls\n"
-            "reach the paddles at the bottom.\n"
-            "Press at the correct timing to score.\n\n"
-            "Click the start button below to begin.",
+            "Controls:\n"
+            "Press 'a' for purple\n"
+            "Press 's' for yellow\n"
+            "Press 'd' for blue",
             align="center", font=("Arial", 18, "normal"))
         
+        self.info.goto(0, -10)
+        self.info.write(
+            "Objective:\n"
+            "Press the correct key when the falling balls\n"
+            "reach the paddles at the bottom.",
+            align="center", font=("Arial", 18, "normal"))
+        
+        self.info.goto(0, -70)
+        self.info.write(
+            "Timing is key! Score as many points as you can.\n"
+            "But beware of missing the target!",
+            align="center", font=("Arial", 16, "italic"))
+        
+        self.info.goto(0, -120)
+        self.info.write(
+            "Click the START button below to begin the game!",
+            align="center", font=("Arial", 18, "bold"))
+            
         # Create start button
         self.start_button = Button(200, 50, "green", "START", click_start)
-        self.start_button.draw_button(0, -50)
+        self.start_button.draw_button(0, -200)
         self.screen.update()
         self.screen.onscreenclick(self.check_start_click)
         

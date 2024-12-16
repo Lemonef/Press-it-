@@ -17,9 +17,10 @@ class Game:
         
         self.keys = ['a', 's', 'd']
         self.key_positions = {'a': -200, 's': 0, 'd': 200}
+        self.paddle_color = {'a': 'purple', 's':'yellow', 'd': 'blue'}
         
         # Paddle
-        self.paddles = {key: Paddle(self.key_positions[key], key)
+        self.paddles = {key: Paddle(self.key_positions[key], key, self.paddle_color[key])
                         for key in self.keys}
         
         # Score
