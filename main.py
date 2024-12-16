@@ -1,6 +1,7 @@
 import turtle
 from screen import ScreenHandler
 
+# Main
 if __name__ == "__main__":
     screen_handler = ScreenHandler()
     screen_handler.start_screen(screen_handler.start_game)

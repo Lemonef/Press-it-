@@ -16,4 +16,4 @@ class Paddle:
         self.shape.hideturtle()
         
     def __str__(self):
-        return "paddle"
+        return "Paddle"

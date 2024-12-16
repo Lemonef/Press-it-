@@ -38,4 +38,4 @@ class Button:
         self.button.clear()
         
     def __str__(self):
-        return "button"
+        return "Button"

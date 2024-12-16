@@ -36,4 +36,4 @@ class Ball:
         return -270 <= y <= -230
     
     def __str__(self):
-        return "ball"
+        return "Ball"

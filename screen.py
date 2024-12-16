@@ -105,3 +105,6 @@ class ScreenHandler:
         
     def end_game_callback(self, end_score):
         self.end_screen(end_score)
+        
+    def __str__(self):
+        return "Screen"

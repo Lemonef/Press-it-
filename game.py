@@ -135,6 +135,9 @@ class Game:
         
         end_score = self.score
         self.end_score_callback(end_score)
+        
+    def __str__(self):
+        return "Game"
             
         
             
