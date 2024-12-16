@@ -23,29 +23,29 @@
 
 
 # Purpose of the classes
-**ScreenHandler**
+- **ScreenHandler**
 Purpose: To manage game's user interface, welcome screen, game area, end screen.
 Interactions: 
 - Initialize the game by invoking the Game class.
 - Display interactive buttons from Button class.
 - Update the screen based on the events and user inputs.
-**Game**
+- **Game**
 Purpose: The game core logic, ball spawning, paddle interactions, score management.
 Interactions: 
 - Spawn the ball object from Ball class.
 - Manage the paddles to the corresponding keys from Paddle class.
 - Check the state of the game with ScreenHandler class.
-**Button**
+- **Button**
 Purpose: Represents the buttons within the game, for user navigation.
 Interactions: 
 - Drawn on the screen by ScreenHandler class.
 - Detect user actions: starting exiting, and restarting.
-**Paddle**
+- **Paddle**
 Purpose: Represents the paddle at the bottom of the screen with fixed specific color.
 Interactions: 
 - Positioned by Game class on the x's coordinates.
 - Interact with the Ball class to detect the successful hit, granting a score.
-**Ball**
+- **Ball**
 Purpose: Represents the falling balls that player must react and interact by pressing the correct keys.
 Interactions: 
 - Spawned by the Game class.
@@ -53,20 +53,20 @@ Interactions:
 - Detects the proximity location to the paddle to determine if the hit was successful.
 
 # Modifications
-**Ball class**:
+- **Ball class**:
 Modified to represent the falling object for the specific ('a', 's', 'd').
-**Paddle class**:
+- **Paddle class**:
 Modified to look simpler
-**Button class**:
+- **Button class**:
 Created to manage the "START", "EXIT", and "RESTART", to facilitate game navigation.
-**Game class**:
+- **Game class**:
 Developed to check the current game state, also balls spawning, score tracking, and input handling, for the smooth interaction of the balls and the paddles.
-**ScreenHandler class**:
+- **ScreenHandler class**:
 Implemented to manges the screens: start, end, and game area. In addition, displaying instructions, scores, and button for interface.
 
 In conclusion, I implemented the keyboard and mouse interactions for detecting keys and buttons, and scoring system. Introduce the mechanic to increase the ball speed and decrease the spawn interval for difficulty purpose.
 
 # Testing
-**Functionality**: each class and method work as intended
-**User Experience**: have buttons to aids the simplicity of the game play, also simple colors and instructions.
-**Bugs**: If you die too fast it could cause the screen to go white, which is not really a problem since it can only happen if the user intended to spam it which would end the game(not associate with the gameplay), also it is needed to be a extremely fast spam.
+- **Functionality**: each class and method work as intended
+- **User Experience**: have buttons to aids the simplicity of the game play, also simple colors and instructions.
+- **Bugs**: If you die too fast it could cause the screen to go white, which is not really a problem since it can only happen if the user intended to spam it which would end the game(not associate with the gameplay), also it is needed to be a extremely fast spam.
