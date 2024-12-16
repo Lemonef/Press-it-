@@ -70,3 +70,7 @@ In conclusion, I implemented the keyboard and mouse interactions for detecting k
 - **Functionality**: each class and method work as intended
 - **User Experience**: have buttons to aids the simplicity of the game play, also simple colors and instructions.
 - **Bugs**: If you die too fast it could cause the screen to go white, which is not really a problem since it can only happen if the user intended to spam it which would end the game(not associate with the gameplay), also it is needed to be a extremely fast spam.
+
+# Rating
+- **90**
+It features multiple ball objects that interact with paddles, requiring players to press corresponding keys as balls approach specific paddles. This complexity surpasses a basic pong game but it doesn't reach the 100 level, which includes advanced simulations like inelastic collisions or complex chain reactions.
