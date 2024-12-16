@@ -74,4 +74,6 @@ In conclusion, I implemented the keyboard and mouse interactions for detecting k
 # Rating
 - **90**
 It features multiple ball objects that interact with paddles, requiring players to press corresponding keys as balls approach specific paddles. This complexity surpasses a basic pong game but it doesn't reach the 100 level, which includes advanced simulations like inelastic collisions or complex chain reactions.
+
+# UML
 ![alt text](image.png)
