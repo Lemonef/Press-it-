@@ -25,12 +25,12 @@ class ScreenHandler:
         self.screen.bgcolor("black")
         
         # Display instructions
-        self.info.goto(0, 200)
+        self.info.goto(0, 230)
         self.info.write(
             "Welcome to Press It!",
             align="center", font=("Arial", 28, "bold"))
         
-        self.info.goto(0, 80)
+        self.info.goto(0, 120)
         self.info.write(
             "Controls:\n"
             "Press 'a' for purple\n"
@@ -38,22 +38,24 @@ class ScreenHandler:
             "Press 'd' for blue",
             align="center", font=("Arial", 18, "normal"))
         
-        self.info.goto(0, -10)
+        self.info.goto(0, 20)
         self.info.write(
             "Objective:\n"
             "Press the correct key when the falling balls\n"
             "reach the paddles at the bottom.",
             align="center", font=("Arial", 18, "normal"))
         
-        self.info.goto(0, -70)
+        self.info.goto(0, -40)
         self.info.write(
             "Timing is key! Score as many points as you can.\n"
             "But beware of missing the target!",
             align="center", font=("Arial", 16, "italic"))
         
-        self.info.goto(0, -120)
+        self.info.goto(0, -150)
         self.info.write(
-            "Click the START button below to begin the game!",
+            "Click the START button below to begin the game!\n"
+            "You can exit any time! Just press the EXIT button\n"
+            "Try to get the highest score possible! good luck!",
             align="center", font=("Arial", 18, "bold"))
             
         # Create start button
