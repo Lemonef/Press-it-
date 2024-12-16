@@ -1,5 +1,6 @@
 import turtle
 from game import Game
+from button import Button
 
 class ScreenHandler:
     def __init__(self):
@@ -33,7 +34,7 @@ class ScreenHandler:
             align="center", font=("Arial", 18, "normal"))
         
         # Create start button
-        self.create_button("START", 0, -50, "green", click_start)
+        self.create_button("START", 0, -80, "green", click_start)
         self.screen.update()
         
     def end_screen(self, end_score):
@@ -51,25 +52,17 @@ class ScreenHandler:
             align="center", font=("Arial", 24, "bold"))
         
         # Create restart button
-        self.create_button("RESTART", 0, -50, "red", self.start_game)
+        self.create_button("RESTART", 0, -80, "red", self.start_game)
         self.screen.update()
         
-    def create_button(self, text, x, y, color, click_callback):
-        button = turtle.Turtle()
-        button.hideturtle()
-        button.penup()
-        button.goto(x, y)
-        button.shape("square")
-        button.color(color)
-        button.shapesize(stretch_wid=2, stretch_len=5)
-        button.showturtle()
-        
-        # Write text on the button
-        self.write_text(text, x, y - 10, font_size=16)
+    def  create_button(self, message, x, y, color, click_callback):
+        self.button = Button(200, 50, color)
+        self.button.draw_button(message)
+        self.button.set_location([x, y])
         
         # Add click event
-        self.screen.onscreenclick(lambda x_pos, y_pos: click_callback()
-                                  if (x - 50 <= x_pos <= x + 50 and y - 20 <= y_pos <= y + 20)
+        self.screen.onscreenclick(lambda x, y: click_callback()
+                                  if (x - 50 <= x <= x + 50 and y - 20 <= y <= y + 20)
                                   else None)
         
     def clear_screen(self):
@@ -80,14 +73,6 @@ class ScreenHandler:
         self.info.penup()
         self.info.color("white")
     
-    def write_text(self, text, x, y, font_size=18):
-        text_turtle = turtle.Turtle()
-        text_turtle.hideturtle()
-        text_turtle.penup()
-        text_turtle.color("white")
-        text_turtle.goto(x, y)
-        text_turtle.write(text, align="center", font=("Arial", font_size, "normal"))
-        
     def start_game(self):
         self.clear_screen()
         self.game = Game(self.screen, self.end_game_callback)
